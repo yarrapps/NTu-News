@@ -1,0 +1,242 @@
+<!doctype html5>
+<html> 
+ <head><style type="text/css" id="dcoder_stylesheet">@import url('https://fonts.googleapis.com/css2?family=Exo:wght@900&display=swap');
+.container {
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.pane {
+  outline: 2px solid #00ff6a;
+  box-shadow: 0 0 10px #00ff6a77, inset 0 0 10px #00ff6a77;
+  height: 1cm;
+  width: 4.5cm;
+  border-radius: 5px;
+  position: relative;
+  overflow: hidden;
+  transition: 0.7s ease;
+}
+
+.input {
+  display: none;
+}
+
+.label {
+  height: 1cm;
+  width: 1.5cm;
+  float: left;
+  font-weight: 600;
+  letter-spacing: -1px;
+  font-size: 14px;
+  padding: 0px;
+  position: relative;
+  z-index: 1;
+  color: #00ff6a;
+  text-align: center;
+  padding-top: 10px;
+}
+
+.selection {
+  display: none;
+  position: absolute;
+  height: 1cm;
+  width: calc(4.5cm / 3);
+  z-index: 0;
+  left: 0;
+  top: 0;
+  box-shadow: 0 0 10px #00ff6a77;
+  transition: .15s ease;
+}
+
+.label:has(input:checked) {
+  color: #212121;
+}
+
+.pane:has(.label:nth-child(1):hover) {
+  transform: rotateY(-30deg);
+}
+
+.pane:has(.label:nth-child(3):hover) {
+  transform: rotateY(35deg);
+}
+
+.label:has(input:checked) ~ .selection {
+  background-color: #00ff6a;
+  display: inline-block;
+}
+
+.label:nth-child(1):has(input:checked) ~ .selection {
+  transform: translateX(calc(4.5cm * 0/3));
+}
+
+.label:nth-child(2):has(input:checked) ~ .selection {
+  transform: translateX(calc(4.5cm * 1/3));
+}
+
+.label:nth-child(3):has(input:checked) ~ .selection {
+  transform: translateX(calc(4.5cm * 2/3));
+}
+
+.myCard {
+  background-color: transparent;
+  width: 190px;
+  height: 254px;
+  perspective: 1000px;
+}
+
+.title {
+  font-size: 1.5em;
+  font-weight: 900;
+  text-align: center;
+  margin: 0;
+}
+
+.innerCard {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+  cursor: pointer;
+}
+
+.myCard:hover .innerCard {
+  transform: rotateY(180deg);
+}
+
+.frontSide,
+.backSide {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 1rem;
+  color: white;
+  box-shadow: 0 0 0.3em rgba(255, 255, 255, 0.5);
+  font-weight: 700;
+}
+
+.frontSide,
+.frontSide::before {
+  background: linear-gradient(43deg, rgb(65, 88, 208) 0%, rgb(200, 80, 192) 46%, rgb(255, 204, 112) 100%);
+}
+
+.backSide,
+.backSide::before {
+  background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
+}
+
+.backSide {
+  transform: rotateY(180deg);
+}
+
+.frontSide::before,
+.backSide::before {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  content: '';
+  width: 110%;
+  height: 110%;
+  position: absolute;
+  z-index: -1;
+  border-radius: 1em;
+  filter: blur(20px);
+  animation: animate 5s linear infinite;
+}
+
+@keyframes animate {
+  0% {
+    opacity: 0.3;
+  }
+
+  80% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0.3;
+  }
+}
+
+body {
+    background-color: #000012;
+}
+</style></head>
+ <body> 
+<bgsound src="bgmusic.mp3">
+  <header>
+   <center>
+    <div class="container"> 
+     <div class="pane"> <label class="label"> <span>NTu</span> <input id="left" class="input" name="radio" type="radio"> </label> <label class="label"> <span>Official</span> <input id="middle" class="input" checked name="radio" type="radio"> </label> <label class="label"> <span>News</span> <input id="right" class="input" name="radio" type="radio"> </label> <span class="selection"></span> 
+     </div> 
+    </div>
+   </center>
+  </header>
+  <br>
+    <br>
+      <br> 
+        <br>
+          <br>
+  <center> 
+   <div class="myCard"> 
+    <div class="innerCard"> 
+     <div class="frontSide"> 
+      <p class="title">Fresh news!</p> 
+      <p>4 july 2023</p> 
+     </div> 
+     <div class="backSide"> 
+      <p class="title">The boxes have been removed</p> 
+      <p>The developer of NTu removed the boxes, and added RM™</p> 
+     </div> 
+    </div> 
+   </div>
+  </center> 
+  <br>
+    <br>
+      <br>
+        <center> 
+   <div class="myCard"> 
+    <div class="innerCard"> 
+     <div class="frontSide"> 
+      <p class="title">Old news</p> 
+      <p>28 June 2023</p> 
+     </div> 
+     <div class="backSide"> 
+      <p class="title">2.52 RELEASED!</p> 
+      <p>NTu 2.52 is finally out! Although the developer wanted to cancel NTu completely!</p> 
+     </div> 
+    </div> 
+   </div>
+  </center> 
+  <br>
+    <br>
+      <br>
+        <center> 
+   <div class="myCard"> 
+    <div class="innerCard"> 
+     <div class="frontSide"> 
+      <p class="title">Old News</p> 
+      <p>23 June 2023</p> 
+     </div> 
+     <div class="backSide"> 
+      <p class="title">A new app has been released!</p> 
+      <p>The developer of NTu has released a new application "NT IMPORT", which has become a parody of CBulder! The developer of the game is not going to update.</p> 
+     </div> 
+    </div> 
+   </div>
+  </center>
+   <br>
+     <br>
+       <br>
+         <br>
+           <center><p style="color: #ffffff">The creation of this site has been confirmed by the developer NTu.</p></center>
+ 
+</body></html>
